@@ -1,0 +1,28 @@
+{
+    "name": "mean_landing_page_backend",
+    "version": "1.0.1",
+    "description": "Backend for mean_landing_page",
+    "license": "Apache",
+    "repo": "to be defined",
+    "private": true,
+    "devDependencies": {
+        "loadtest": "*"
+    },
+    "scripts": {
+        "prestart": "npm install",
+        "start": "http-server"
+    },
+    "dependencies": {
+        "assert": "latest",
+        "bcrypt": "^0.8.7",
+        "body-parser": "^1.15.2",
+        "cookie-parser": "^1.4.3",
+        "express": "^4.14.0",
+        "express-jwt": "^5.0.0",
+        "jsonwebtoken": "^7.1.9",
+        "mongodb": "latest",
+        "mongoose": "^4.6.0",
+        "morgan": "^1.7.0",
+        "require": "^2.4.20"
+    }
+}

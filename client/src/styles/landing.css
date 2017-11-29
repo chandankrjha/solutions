@@ -1,0 +1,9 @@
+.landing-wrapper {
+  display: flex; }
+  .landing-wrapper .landing-image {
+    width: 500px;
+    height: auto;
+    float: left;
+    margin: 2rem; }
+  .landing-wrapper .landing-text {
+    margin: auto; }
