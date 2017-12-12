@@ -7,14 +7,14 @@ module.exports = function(app) {
     var bcrypt = require('bcrypt');
     var cookieParser = require('cookie-parser');
     var salt = bcrypt.genSaltSync(10);
-    var url = 'mongodb://localhost:27017/prod_landing_pages';
+    var url = 'mongodb://localhost:27017/solutions';
     var jwt = require('jsonwebtoken');
-    var superSecret = 'chandankrjhameanapp';
+    var superSecret = 'infinity';
 
-    app.post('/api/login', function(req, res) {
-        var response;
-        var username = req.body.username;
-        var password = req.body.password;
+    app.post('/api/l', function(req, res) {
+        let { username, password } = req.body;
+        
+        
         User.findOne({ "username": username }, function(err, item) {
 
             if (item) {
@@ -41,22 +41,22 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/api/aliveSession', function(req, res) {
-        User.findOne({ "_id": req.cookies._id }, function(err, item) {
-            if (item) {
-                var toSend = JSON.parse(JSON.stringify(item));
-                delete toSend.password;
-                res.status(200).send(setupResponse(200, config.sessionAlive, toSend));
-            } else {
-                res.status(403).send(setupResponse(403, config.sessionNotAlive));
-            }
+    // app.get('/api/aliveSession', function(req, res) {
+    //     User.findOne({ "_id": req.cookies._id }, function(err, item) {
+    //         if (item) {
+    //             var toSend = JSON.parse(JSON.stringify(item));
+    //             delete toSend.password;
+    //             res.status(200).send(setupResponse(200, config.sessionAlive, toSend));
+    //         } else {
+    //             res.status(403).send(setupResponse(403, config.sessionNotAlive));
+    //         }
 
-        });
-    });
+    //     });
+    // });
 
-    app.post('/api/logout', function(req, res) {
-        res.clearCookie("token");
-        res.clearCookie("_id");
-        res.status(200).send(setupResponse(200, config.successLogout));
-    });
+    // app.post('/api/logout', function(req, res) {
+    //     res.clearCookie("token");
+    //     res.clearCookie("_id");
+    //     res.status(200).send(setupResponse(200, config.successLogout));
+    // });
 }

@@ -5,45 +5,30 @@ var resp = require('./../../methods/response.js');
 var setupResponse = resp.setupResponse;
 var config = require('../../config/env/default');
 
+
+
+/***
+ * 
+ * s => solutions
+ * 
+ * 
+ * ***/
+
+const solutionsConstants = {
+    'API': 'api',
+    'version': 'v0',
+    'solutions': 's'
+}
+
 module.exports = function(app) {
 
-    app.get('/api/landing_page', function(req, res) {
+    app.get('/api/v0/s', function(req, res) {
         var limit, offset, search_query, deleted, query, query;
-
-        if (req.query.q) {
-            if (req.query.deleted && req.query.deleted == 'exclude') {
-                limit = req.query.limit ? req.query.limit : 0;
-                search_query = req.query.q ? req.query.q : '';
-                offset = req.query.offset ? req.query.offset : 0;
-
-                pattern = new RegExp(search_query, "i");
-                query = LandingPage.find({ "meta_name": pattern }).limit(limit).skip(offset);
-                count = LandingPage.find({ "meta_name": pattern }).count();
-            }
-        } else if (req.query.redirect_filter) {
-            query = LandingPage.find({}).sort({ _id: 'desc' });
-            count = LandingPage.find({}).count();
-        } else {
-            limit = req.query.limit ? req.query.limit : 10;
-            offset = req.query.offset ? req.query.offset : 0;
-            deleted = req.query.deleted ? req.query.deleted : 0;
-            query = LandingPage.find({}).sort({ _id: 'desc' }).limit(limit).skip(offset);
-            count = LandingPage.find({}).count();
-        }
-
+        
         query.exec(function(err, item) {
             if (err) {
-                return res.status(500).send(setupResponse(500, config.errorMsgGet + 'landing page details', JSON.stringify(err)))
+                return []
             }
-
-            count.exec(function(err, count) {
-
-                if (!err) {
-                    var resp = setupResponse(200, 'landing pages' + config.successMsgGet, item);
-                    resp.count = count;
-                    res.status(200).send(resp);
-                }
-            });
         });
     });
 

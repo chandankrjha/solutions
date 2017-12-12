@@ -5,28 +5,13 @@ var resp = require('./../../methods/response.js');
 var setupResponse = resp.setupResponse;
 var config = require('../../config/env/default');
 
+
+const API = 'api';
+
 module.exports = function(app) {
 
-    app.get('/api/landing_page_redirect', function(req, res) {
+    app.get('/api/v0/r', function(req, res) {
         var limit, offset, search_query, deleted, query, query;
-
-        if (req.query.q) {
-            if (req.query.deleted && req.query.deleted == 'exclude') {
-                limit = req.query.limit ? req.query.limit : 0;
-                search_query = req.query.q ? req.query.q : '';
-                offset = req.query.offset ? req.query.offset : 0;
-
-                pattern = new RegExp(search_query, "i");
-                query = LandingPageRedirect.find({ "redirect_clean_URL_tag": pattern }).limit(limit).skip(offset);
-                count = LandingPageRedirect.find({ "redirect_clean_URL_tag": pattern }).count();
-            }
-        } else {
-            limit = req.query.limit ? req.query.limit : 10;
-            offset = req.query.offset ? req.query.offset : 0;
-            deleted = req.query.deleted ? req.query.deleted : 0;
-            query = LandingPageRedirect.find({}).limit(limit).skip(offset);
-            count = LandingPageRedirect.find({}).count();
-        }
 
         query.exec(function(err, item) {
             if (err) {
