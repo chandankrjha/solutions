@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var LandingPageSchema = require('../../models/landing_page.js');
-var LandingPage = mongoose.model('LandingPage', LandingPageSchema);
 var resp = require('./../../methods/response.js');
 var setupResponse = resp.setupResponse;
 var config = require('../../config/env/default');
 
+
+const Solutions = require('../../models/solutions');
 
 
 /***
@@ -14,70 +14,62 @@ var config = require('../../config/env/default');
  * 
  * ***/
 
-const solutionsConstants = {
+const GET = 'get';
+const PUT = 'put';
+const POST = 'post';
+const DELETE = 'delete';
+
+const constants = {
     'API': 'api',
-    'version': 'v0',
-    'solutions': 's'
+    'version': 'v0'
 }
 
+
+
+const ops = {
+    [GET]: 'get',
+    [POST]: 'post',
+    [PUT]: 'put',
+    [DELETE]: 'delete'
+}
+
+const whatShouldHappen = '';// functions
+
+const apiVersion = constants.API + '/' + constants.version + '/';
+
+const getUrl = ( url ) => ( apiVersion + url );
+
 module.exports = function(app) {
-
-    app.get('/api/v0/s', function(req, res) {
-        var limit, offset, search_query, deleted, query, query;
+    
+    const api = (x, y) => {
         
-        query.exec(function(err, item) {
-            if (err) {
-                return []
-            }
-        });
-    });
-
-    app.post('/api/landing_page', function(req, res) {
-
-        var data = req.body;
-        var lp = new LandingPage(data);
-        var response;
-        lp.save(function(err) {
-            if (err) {
-                res.status(500).send(setupResponse(500, config.errorMsgAdd + 'landing page', JSON.stringify(err)))
-            } else {
-                res.status(200).send(setupResponse(200, 'Landing page' + config.successMsgGet, lp))
-            }
-        });
-
-
-    });
-
-    app.put('/api/landing_page/:lpid', function(req, res) {
-        var response;
-        var data = req.body;
-        var id = data._id;
-        delete data._id;
-        LandingPage.findOneAndUpdate({ _id: req.params.lpid }, data, function(err, item) {
-            if (err) {
-                res.status(500).send(setupResponse(500, config.errorMsgUpdate + 'landing page with id ' + req.params.lprid, JSON.stringify(err)))
-            } else {
-                data._id = id;
-                res.status(200).send(setupResponse(200, 'Landing page with id ' + id + config.successMsgUpdate, data))
-            }
-
-        });
-    });
-
-
-    app.delete('/api/landing_page/:lpid', function(req, res) {
-        LandingPage.findOne({ _id: req.params.lpid }, function(err, item) {
-            if (err) {
-                res.status(500).send(setupResponse(500, config.errorMsgDelete + 'landing page with id ' + req.params.lpid, JSON.stringify(err)))
-            }
-            item.remove(function(err) {
+        const kToN = {
+            'solution': 's',
+            'requirement': 'r' 
+        }
+        
+        // url is generic for an api
+        
+        // endpoints can also be defined separately
+        
+        // pass the implementation as a function callback
+        app[x]( getUrl ('s'), (req, res) => {
+            query.exec(function(err, item) {
                 if (err) {
-                    res.status(500).send(500, config.errorMsgDelete + 'landing page with id ' + req.params.lpid, JSON.stringify(err));
+                    return []
                 } else {
-                    res.status(200).send(setupResponse(200, 'Landing page with id ' + req.params.lpid + config.successMsgDelete))
+                    return item
                 }
             });
-        });
-    });
+        })
+    }
+    
+    api(GET, 's');
+    api(PUT, 's');
+    api(POST, 's');
+    api(DELETE, 's');
+
+    
+    // place the code to actually think and work 
 
 };
