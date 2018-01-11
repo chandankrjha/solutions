@@ -18,7 +18,7 @@ module.exports = {
             ca: ''
         }
     },
-    secret: 'chandankrjhameanapp',
+    secret: 'solutions',
     hostname: process.env.HOST || process.env.HOSTNAME,
     db: process.env.MONGOHQ_URL,
     templateEngine: 'swig',
