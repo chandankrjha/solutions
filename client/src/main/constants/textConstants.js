@@ -1,9 +1,11 @@
 export default {
   LANDING_PAGE_CONTENT: `
-    Working as a web developer in Pramati Technologies Private Limited, Hyderabad.
-    Have four years of professional web development experience.
+    Solution for everyday problems.
 
-    I like to read about non fiction. I have a passion about learning anything new.
-    I love travelling and pretty much a nature lover.
+    Any problem can have many solutions.
+    One of the solutions can be called close to optimal solution.
+
+    The concept of solutions is to find out close to optimal solutions 
+    in a concise and very limited to the point solutions points.
   `
 }
