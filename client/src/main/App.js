@@ -2,8 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import * as actions from "./appActions";
 import Routes from "./config/Routes";
-import Nav from "./sections/nav/Nav";
-import Footer from "./sections/footer/Footer";
+import Nav from "./sections/nav";
 
 class App extends React.Component {
   componentWillMount() {
@@ -20,7 +19,6 @@ class App extends React.Component {
         <div className="app-wrapper">
           <Routes />
         </div>
-        <Footer />
       </div>
     );
   }
