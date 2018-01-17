@@ -1,7 +1,24 @@
+.links-wrapper {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background: linear-gradient(to right bottom, #74a2ed, #1969ea); }
+  .links-wrapper .link {
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff; }
+
+.solutions-content {
+  list-style: none;
+  display: flex;
+  flex-direction: column; }
+  .solutions-content li {
+    margin: 1rem 0; }
+
 html, body {
   margin: 0;
   padding: 0;
   background-color: white; }
 
 .app-wrapper {
-  margin: 0 10em; }
+  margin: 0 10rem; }

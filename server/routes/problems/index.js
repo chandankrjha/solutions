@@ -1,31 +1,12 @@
-// var mongoose = require('mongoose');
-// var LandingPageRedirectSchema = require('./../../models/landing_page_redirect.js');
-// var LandingPageRedirect = mongoose.model('LandingPageRedirect', LandingPageRedirectSchema);
-// var resp = require('./../../methods/response.js');
-// var setupResponse = resp.setupResponse;
-// var config = require('../../config/env/default');
+let mongoose = require('mongoose');
+let ProblemSchmema = require('../../models/Problem');
 
-
-// const API = 'api';
+let Problem = mongoose.model('problem', ProblemSchmema);
+var resp = require('./../../methods/response.js');
+var setupResponse = resp.setupResponse;
+var config = require('../../config/env/default');
 
 // module.exports = function(app) {
-
-//     app.get('/api/v0/r', function(req, res) {
-//         var limit, offset, search_query, deleted, query, query;
-
-//         query.exec(function(err, item) {
-//             if (err) {
-//                 return res.status(500).send(setupResponse(500, config.errorMsgGet + 'landing page redirect details', JSON.stringify(err)))
-//             }
-//             count.exec(function(err, count) {
-//                 if (!err) {
-//                     var resp = setupResponse(200, 'landing pages redirect' + config.successMsgGet, item);
-//                     resp.count = count;
-//                     res.status(200).send(resp);
-//                 }
-//             });
-//         });
-//     });
 
 //     app.post('/api/landing_page_redirect/', function(req, res) {
 //         var data = req.body;
@@ -77,3 +58,30 @@
 //     });
 
 // }
+
+const API = "api";
+const VERSION = "v0";
+const PROBLEM = "problem";
+const API_VERSION = API + "/" + VERSION + "/";
+
+const PROBLEM_URL = API_VERSION + PROBLEM;
+
+module.exports = function(app) {
+  app.get(PROBLEM_URL, function(req, res) {
+    // var limit, offset, search_query, deleted, query, query;
+
+    // query.exec(function(err, item) {
+    //     if (err) {
+    //         return res.status(500).send(setupResponse(500, config.errorMsgGet + 'landing page redirect details', JSON.stringify(err)))
+    //     }
+    //     count.exec(function(err, count) {
+    //       if (!err) {
+    //         var resp = setupResponse(200, 'landing pages redirect' + config.successMsgGet, item);
+    //         resp.count = count;
+    //         res.status(200).send(resp);
+    //       }
+    //   });
+    // });
+  });
+
+}

@@ -1,9 +1,13 @@
 .links-wrapper {
-  padding: 2rem;
   display: flex;
   flex-direction: row;
+  text-align: center;
 
-  a.link {
-    padding: 0 2rem;
+  background: linear-gradient(to right bottom, #74a2ed, #1969ea);
+
+  .link {
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
   }
 }

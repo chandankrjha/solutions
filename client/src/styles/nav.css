@@ -1,6 +1,9 @@
 .links-wrapper {
-  padding: 2rem;
   display: flex;
-  flex-direction: row; }
-  .links-wrapper a.link {
-    padding: 0 2rem; }
+  flex-direction: row;
+  text-align: center;
+  background: linear-gradient(to right bottom, #74a2ed, #1969ea); }
+  .links-wrapper .link {
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff; }

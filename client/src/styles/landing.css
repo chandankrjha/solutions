@@ -1,0 +1,6 @@
+.solutions-content {
+  list-style: none;
+  display: flex;
+  flex-direction: column; }
+  .solutions-content li {
+    margin: 1rem 0; }
