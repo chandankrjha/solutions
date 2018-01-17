@@ -5,14 +5,18 @@ import Nav from "../../main/sections/nav";
 class App extends React.Component {
 
   handleSubmit(e) {
-    let name = this.refs["name"];
-    let description = this.refs["description"]
+
+    e.preventDefault();
+
+    let name = this.refs["name"].value;
+    let description = this.refs["description"].value;
 
     let info = {
       name,
       description
     }
-
+    
+    console.log(info);
     this.props.submitProblem(info)
   }
 
@@ -20,16 +24,17 @@ class App extends React.Component {
     return (
       <div>
         <div className="pr-wr">
-          <form>
+          <form className="pr-form">
+
             <input ref="name" type="text" />
+
             <textarea ref="description"></textarea>
 
             <button onClick={(e) => this.handleSubmit(e)} >
               Submit
             </button>
-          </form>
 
-          
+          </form>
         </div>
       </div>
     );

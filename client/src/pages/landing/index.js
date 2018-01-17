@@ -17,8 +17,8 @@ class LandingPage extends React.Component {
     return (
       <ul className="solutions-content">
         {
-          content.map((c) => {
-            return <li>{c}</li>
+          content.map((c, i) => {
+            return <li key={i}>{c}</li>
           })
         }
       </ul>

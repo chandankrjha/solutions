@@ -1,6 +1,6 @@
 export default {
   header: {
-    text: 'hhh'
+    text: ''
   },
   leftSection: [
     {
