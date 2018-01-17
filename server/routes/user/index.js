@@ -65,3 +65,31 @@
 //         });
 //     });
 // }
+
+module.exports = function(app) {
+
+  app.post('/api/v0/users', (req, res) => {
+    let {email, username, password, passwordConf} = req.body
+
+    let userData = {
+      email,
+      username,
+      password,
+      passwordConf
+    }
+
+    if(email && username && password && passwordConf) {
+      User.create(userData, (err, user) => {
+        if(err) {
+          return next(err);
+        } else {
+          return res.redirect('profile')
+        }
+      })
+    }
+  });
+
+  // change password
+  // get particular user
+  // update user
+}

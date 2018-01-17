@@ -1,0 +1,6 @@
+.links-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row; }
+  .links-wrapper a.link {
+    padding: 0 2rem; }
