@@ -1,10 +1,9 @@
-// var User = require('./../../models/users');
-// var resp = require('./../../methods/response.js');
-// var setupResponse = resp.setupResponse;
+const User = require('./../models/User');
+const setupResponse = require('./../utils/commonUtils').setupResponse;
 // var config = require('../../config/env/default');
-// var bcrypt = require('bcrypt');
-// var cookieParser = require('cookie-parser');
-// var salt = bcrypt.genSaltSync(10);
+var bcrypt = require('bcrypt');
+var cookieParser = require('cookie-parser');
+var salt = bcrypt.genSaltSync(10);
 
 // module.exports = function(app) {
 
