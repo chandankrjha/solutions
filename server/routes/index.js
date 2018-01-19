@@ -33,22 +33,12 @@ module.exports = function(app) {
             admin: true
         });
         
-        
-
-        res.status(200).send(setupResponse(200, 'First user saved successfully', user));
         user.save(function(err) {
             if (err) {
                 res.status(500).send(setupResponse(500, 'Cannot setup the first user', JSON.stringify(err)));
             } else {
                 res.status(200).send(setupResponse(200, 'First user saved successfully', user));
             }
-
-
-        });
-        
-        
-        var requirement = new User({
-            'statement': 'How to learn anything'
         });
     });
     
