@@ -1,6 +1,6 @@
-let exports = module.exports = {};
+let exports1 = module.exports = {};
 
-exports.setupResponse = function setupResponse(code, message, result) {
+exports1.setupResponse = function setupResponse(code, message, result) {
     var response = {
         statusCode: code,
         statusMsg: message

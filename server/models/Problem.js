@@ -1,20 +1,14 @@
-let mongoose = require('mongoose');
+// get an instance of mongoose and mongoose.Schema
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var User = require('./User');
 
-let problemSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  user: {
-    type: String, //user id mostly or anonymous string
-    required: true
-  },
-  likes: {
-    type: Number,
-    required: false
-  }
-})
+// set up a mongoose model and pass it using module.exports
+var ProblemSchema = new Schema({
+    name: String,
+    description: String,
+    user: User,
+    likes: Number
+}, { collection: 'problems' });
+
+module.exports = mongoose.model('Problem', ProblemSchema);
