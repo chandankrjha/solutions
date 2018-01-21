@@ -9,13 +9,13 @@ export const registerAUser = (userInfo) => {
 
 export const updateUserProfile = (userInfo) => {
   return {
-    type: types.UPDATE_USER_PROFILE,
+    type: types.UPDATE_USER_INFO,
     userInfo
   }
 }
 
 export const getUserInfo = (id) => {
   return {
-    type: types.GET_USER_PROFILE
+    type: types.GET_USER_INFO
   }
 }

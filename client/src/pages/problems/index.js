@@ -17,22 +17,29 @@ class App extends React.Component {
     }
     
     console.log(info);
-    this.props.submitProblem(info)
+    //this.props.submitProblem(info)
   }
 
   render() {
     return (
       <div>
         <div className="pr-wr">
+          <h4>Add a new problem</h4>
           <form className="pr-form">
 
-            <input ref="name" type="text" />
+            <div class="pr-row">
+              <input ref="name" type="text" placeholder="Name" />
+            </div>
 
-            <textarea ref="description"></textarea>
+            <div class="pr-row">
+              <textarea ref="description" placeholder="Description"></textarea>
+            </div>
 
-            <button onClick={(e) => this.handleSubmit(e)} >
-              Submit
-            </button>
+            <span>
+              <button onClick={(e) => this.handleSubmit(e)} >
+                Submit
+              </button>
+            </span>
 
           </form>
         </div>

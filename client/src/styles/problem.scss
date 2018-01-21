@@ -1,3 +1,10 @@
 .pr-wr {
-  
+  .pr-form {
+    display: flex;
+    flex-direction: column;
+
+    .pr-row {
+      margin: 1rem 0;
+    }
+  }
 }
