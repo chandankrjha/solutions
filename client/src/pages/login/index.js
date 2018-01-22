@@ -25,11 +25,11 @@ class Login extends React.Component {
           <h4>Login</h4>
           <form className="login-form">
 
-            <div class="login-row">
+            <div className="login-row">
               <input ref="username" type="text" placeholder="Username" />
             </div>
 
-            <div class="login-row">
+            <div className="login-row">
               <textarea ref="password" placeholder="Password"></textarea>
             </div>
 

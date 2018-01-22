@@ -21,15 +21,15 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <div className="login-wr">
+        <div className="signup-wr">
           <h4>Login</h4>
-          <form className="login-form">
+          <form className="signup-form">
 
-            <div class="login-row">
+            <div className="signup-row">
               <input ref="username" type="text" placeholder="Username" />
             </div>
 
-            <div class="login-row">
+            <div className="signup-row">
               <textarea ref="password" placeholder="Password"></textarea>
             </div>
 
