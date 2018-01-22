@@ -1,5 +1,6 @@
-import { take, put, call, fork, select, all, takeEvery } from 'redux-saga/effects'
-import * as actions from '../../actions/user';
+// import { take, put, call, fork, select, all, takeEvery } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
+// import * as actions from '../../actions/user';
 import * as types from '../../actions/constants/actionTypes';
 import * as api from '../../api';
 

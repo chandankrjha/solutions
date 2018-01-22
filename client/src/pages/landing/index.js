@@ -26,8 +26,4 @@ class LandingPage extends React.Component {
   }
 }
 
-export default connect(
-  state => ({
-    loading: state.app.loading
-  })
-)(LandingPage);
+export default LandingPage;

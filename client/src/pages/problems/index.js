@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import Nav from "../../main/sections/nav";
 
-class App extends React.Component {
+class Problem extends React.Component {
 
   handleSubmit(e) {
 
@@ -27,11 +27,11 @@ class App extends React.Component {
           <h4>Add a new problem</h4>
           <form className="pr-form">
 
-            <div class="pr-row">
+            <div className="pr-row">
               <input ref="name" type="text" placeholder="Name" />
             </div>
 
-            <div class="pr-row">
+            <div className="pr-row">
               <textarea ref="description" placeholder="Description"></textarea>
             </div>
 
@@ -48,8 +48,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(
-  state => ({
-    loading: state.app.loading
-  })
-)(App);
+export default Problem;
